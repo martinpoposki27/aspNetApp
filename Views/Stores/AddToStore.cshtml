@@ -1,0 +1,16 @@
+﻿@model albumsMVC.Models.AddToStoreModel
+@{
+    ViewBag.Title = "AddToStore";
+}
+
+<h2>Add albums to @ViewBag.StoreName</h2>
+
+@using (Html.BeginForm("AddToStore", "Stores"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.albumId, new SelectList(Model.albums, "Id", "Name", new {@class="form-control" }))
+    </div>
+    @Html.HiddenFor(m => m.storeId)
+    <button type="submit" class="btn btn-default">Save</button>
+}
+
